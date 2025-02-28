@@ -1,0 +1,121 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app,
+.show-details-page,
+.favorites-page {
+  padding: 15px; /* Adjust padding for better tablet view */
+}
+
+.back-link {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.show-title {
+  margin-bottom: 20px;
+}
+
+.show-topic {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Adjusted font size and margin for tablets */
+.show-topic h1 {
+  font-weight: bold;
+  color: purple;
+  font-size: 2.5em; 
+  margin-right: 15px; 
+  margin-bottom: 0;
+}
+
+.show-topic img {
+  max-height: 40px; /* Adjusted image height for tablets */
+}
+
+.season-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px; 
+}
+
+ /* Adjusted padding for tablets */
+.season-button {
+  padding: 6px 10px; 
+  margin: 3px; 
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.season-button.selected {
+  background-color: lightblue;
+}
+
+.season-details {
+  border: 1px solid #eee;
+  padding: 12px; /* Adjusted padding for tablets */
+}
+
+.season-number,
+.season-episodes {
+  margin-bottom: 8px; 
+  font-size: 0.9em; 
+}
+
+.season-image {
+  max-width: 120px; 
+  display: block;
+  margin-bottom: 8px; 
+}
+
+.episode-item {
+  padding: 6px; 
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.episode-title {
+  margin: 0;
+  font-size: 0.9em; 
+}
+
+.favorites-list li {
+  border: 1px solid #eee;
+  padding: 8px; 
+  margin-bottom: 8px; 
+  font-size: 0.9em; 
+}
+
+.remove-favorite-button {
+  background-color: rgb(102, 0, 255);
+  color: white;
+  border: none;
+  padding: 4px 8px; 
+  cursor: pointer;
+}
+
+/* Media Queries for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+  .show-topic h1 {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+
+  .show-topic img {
+    max-height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .show-topic h1 {
+    font-size: 1.8em;
+  }
+}
