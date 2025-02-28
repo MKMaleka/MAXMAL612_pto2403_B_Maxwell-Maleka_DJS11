@@ -13,15 +13,24 @@ function ShowDetailsPage() {
   );
 
   useEffect(() => {
-    fetch(`https://podcast-api.netlify.app/id/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchShowDetails = async () => {
+      try {
+        const response = await fetch(`https://podcast-api.netlify.app/id/${id}`);
+        if (!response.ok) throw new Error("Failed to fetch show details");
+
+        const data = await response.json();
         setShow(data);
         if (data.seasons && data.seasons.length > 0) {
           setSelectedSeason(data.seasons[0]);
         }
+      } catch (error) {
+        console.error("Error fetching show details:", error);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchShowDetails();
   }, [id]);
 
   useEffect(() => {
@@ -123,8 +132,8 @@ function ShowDetailsPage() {
           <p className="season-episodes">
             Episodes: {selectedSeason.episodes.length}
           </p>
-          {selectedSeason.episodes.map((episode) => (
-            <div key={episode.id !== undefined ? `episode-${episode.id}` : `episode-index-${selectedSeason.id}-${episode.episode}`} className="episode-item">
+          {selectedSeason.episodes.map((episode, index) => (
+            <div key={episode.id || `episode-${index}`} className="episode-item">
               <p className="episode-title">
                 Episode {episode.episode}: {episode.title}
               </p>
